@@ -50,10 +50,14 @@ class GildedRoseQualityIssueTest extends TestCase
 
     public function testUpdateSellIn():void
     {
-        $items = [new Item('Conjured', 4, 15)];
+        $items = [
+            new Item('Conjured', 4, 15),
+            new Item(GildedRoseQualityIssue::SULFURAS, 4, 15)
+        ];
         $gildedrose=new GildedRoseQualityIssue($items);
         $gildedrose->updateQuality();
         $this->assertSame(3, $items[0]->sell_in);
+        $this->assertSame(4, $items[1]->sell_in);
     }
     
     public function testAjouterUn():void
@@ -79,5 +83,5 @@ class GildedRoseQualityIssueTest extends TestCase
         $this->assertSame(14, $items[0]->quality);
         $this->assertSame(15, $items[1]->quality);
     }
-
 }
+
