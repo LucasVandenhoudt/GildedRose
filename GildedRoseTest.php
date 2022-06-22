@@ -16,7 +16,7 @@ class GildedRoseTest extends TestCase
         $items = [new Item('Produit', 5, -1)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
-        $this->assertSame('error', $items[0]->quality);
+        $this->assertSame(-1, $items[0]->quality);
     }
 
     /*test d'acceptation sur l'augmentation de la qualité de l'objet Aged Brie*/
@@ -34,7 +34,7 @@ class GildedRoseTest extends TestCase
         $items = [new Item('Produit', 5, 51)];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
-        $this->assertSame('error', $items[0]->quality);
+        $this->assertSame(51, $items[0]->quality);
     }
 
     /*test d'acceptation sur la qualité de l'objet Sulfura*/
@@ -101,9 +101,9 @@ class GildedRoseTest extends TestCase
     }
 
     /*test d'acceptation sur la qualité d'un objet Conjured dont le sellIn est négatif*/
-    public function testQualiteConjured(): void
+    public function testQualiteConjuredN(): void
     {
-        $items = [new Item('Conjured', -1, 44)];
+        $items = [new Item('Conjured', -1, 44), ];
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
         $this->assertSame(42, $items[0]->quality);
