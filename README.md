@@ -20,7 +20,7 @@ Clone the repository
 git clone git@github.com:emilybache/GildedRose-Refactoring-Kata.git
 ```
 
-ou
+or
 
 ```shell script
 git clone https://github.com/emilybache/GildedRose-Refactoring-Kata.git

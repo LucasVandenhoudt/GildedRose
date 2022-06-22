@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# bien lancer ce script avant chaque commit
+bin/qa local-php-security-checker composer.lock
+
+bin/php vendor/bin/phpstan analyse --level=9 ./src
+bin/php vendor/bin/phpstan analyse --level=9 ./tests
+bin/qa phpcbf --standard=PSR2 ./src ./tests
+bin/qa phpcs --standard=PSR2 ./src ./tests
+
+bin/phpunit --testsuite all --coverage-text

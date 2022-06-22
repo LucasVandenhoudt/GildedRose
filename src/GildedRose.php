@@ -21,14 +21,13 @@ class GildedRose
     /**
      * @var Item[]
      */
-    public $items;
+    protected $items;
 
     /**
      * @param array<int,Item> $items
      */
     public function __construct(array $items)
     {
-        echo "salut:".get_class($this)."\n";
         $this->items = $items;
     }
 
