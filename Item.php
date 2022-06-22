@@ -32,4 +32,4 @@ final class Item
     {
         return "{$this->name}, {$this->sell_in}, {$this->quality}";
     }
-}
+} 
