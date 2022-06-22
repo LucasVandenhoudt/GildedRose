@@ -9,7 +9,6 @@ class GildedRose
     const AGEDBRIE = 'Aged Brie';
     const CONJURED = 'Conjured';
     const SULFURAS = 'Sulfuras, Hand of Ragnaros';
-    const ERREUR = 'error';
     const QUALITEMAX = 50;
     const QUALITEMIN = 0;
     const BACKSTAGE = 'Backstage passes to a TAFKAL80ETC concert';
