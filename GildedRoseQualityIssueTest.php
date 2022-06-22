@@ -12,13 +12,12 @@ class GildedRoseQualityIssueTest extends TestCase
 {
     public function testAjouterTrois():void
     {
-        /** @var array<int|string,TYPE>$item */
         $items = [
             new Item('Aged Brie', 4, 30),
             new Item('Backstage passes to a TAFKAL80ETC concert', 4, 30),
             new Item('Aged Brie', -1, 30),
             new Item('Aged Brie', 4, 51),
-        ];   
+        ];
         $gildedrose=new GildedRoseQualityIssue($items);
         $gildedrose->updateQuality();
         $this->assertSame(33, $items[0]->quality);
@@ -84,4 +83,3 @@ class GildedRoseQualityIssueTest extends TestCase
         $this->assertSame(15, $items[1]->quality);
     }
 }
-
