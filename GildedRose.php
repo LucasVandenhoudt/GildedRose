@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
-final class GildedRose
+class GildedRose
 {
     const AGEDBRIE = 'Aged Brie';
     const CONJURED = 'Conjured';
@@ -18,13 +18,18 @@ final class GildedRose
     const NOMBRE_UPDATE_QUALITY_DEFAULT = 1;
     const BACKSTAGE_INFERIEUR_OU_EGALE_A10 = 10;
     const BACKSTAGE_INFERIEUR_OU_EGALE_A5 = 5;
+    const NOMBRE_UPDATE_SELLIN_DEFAULT=1;
     /**
      * @var Item[]
      */
-    private $items;
+    public $items;
 
+    /**
+     * @param array<int,Item> $items
+     */
     public function __construct(array $items)
     {
+        echo "salut:".get_class($this)."\n";
         $this->items = $items;
     }
 
@@ -96,7 +101,7 @@ final class GildedRose
     private function updateSellIn(Item $item):void
     {
         if ($item->name != self::SULFURAS) {
-            $item->sell_in = $item->sell_in - self::NOMBRE_UPDATE_QUALITY_DEFAULT;
+            $item->sell_in = $item->sell_in - self::NOMBRE_UPDATE_SELLIN_DEFAULT;
         }
     }
 
@@ -116,14 +121,9 @@ final class GildedRose
     private function updateQualityIfSellInPositif(Item $item):void
     {
         if ($this->checkQualityEntre0Et50($item)) {
-            if ($item->name != self::SULFURAS) {
+            if ($item->name != self::SULFURAS && $item->name != self::CONJURED) {
                 $item->quality = $item->quality - self::NOMBRE_UPDATE_QUALITY_DEFAULT;
             }
-            if ($item->name== self::CONJURED) {
-                $item->quality = $item->quality - self::NOMBRE_UPDATE_QUALITY_CONJURED;
-            }
-        } else {
-            $item->quality = self::ERREUR;
         }
     }
 
