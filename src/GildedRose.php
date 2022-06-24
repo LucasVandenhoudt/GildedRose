@@ -50,6 +50,10 @@ class GildedRose
     {
         if ($item->name == self::BACKSTAGE) {
             if ($item->sell_in <= self::BACKSTAGE_INFERIEUR_OU_EGALE_A10) {
+                if($item->quality < self::QUALITEMAX && $item->name == self::AGEDBRIE && $item->sell_in=7)
+                {
+                    $item->quality++;
+                }
                 if ($item->quality < self::QUALITEMAX) {
                     $item->quality = $item->quality + self::NOMBRE_UPDATE_QUALITY_DEFAULT;
                 }
